@@ -1,0 +1,35 @@
+Microsoft Windows [Version 10.0.26100.3775]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\xampp\apache>openssl genrsa -out server.key 2048
+
+C:\xampp\apache>openssl req -new -key server.key -out server.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:IN
+State or Province Name (full name) [Some-State]:Maharashtra
+Locality Name (eg, city) []:Kopargaon
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Sanjivani College of Enginnering, Kopargaon
+Organizational Unit Name (eg, section) []:IT Departmant
+Common Name (e.g. server FQDN or YOUR name) []:Tejas
+Email Address []:tejaspandure02@gmail.com
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:Tejas@8358
+An optional company name []:
+
+C:\xampp\apache>openssl x509 -req -365 -in server.csr -signkey server.key -out server.crt
+x509: Unknown option or message digest: 365
+x509: Use -help for summary.
+
+C:\xampp\apache>openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+Certificate request self-signature ok
+subject=C=IN, ST=Maharashtra, L=Kopargaon, O=Sanjivani College of Enginnering, Kopargaon, OU=IT Departmant, CN=Tejas, emailAddress=tejaspandure02@gmail.com
+
+C:\xampp\apache>
